@@ -50,8 +50,9 @@ export default function() {
   const classes = useStyles();
 
   useEffect(() => {
-    const unlisten = firebase.auth.onAuthStateChanged(user =>
-      setSession({ displayName: user.displayName, email: user.email, uid: user.uid })
+    const unlisten = firebase.auth.onAuthStateChanged(user => {
+        setSession({ displayName: user.displayName, email: user.email, uid: user.uid })
+      }
     );
 
     return () => unlisten();
